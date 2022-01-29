@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&display=swap");
+
+:root {
+  --clr-progress: hsl(219, 91%, 69%);
+  --clr-bar: hsl(0, 0%, 76%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(295, 100%, 97%);
+  font-family: "Red Hat Display";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  max-width: 100%;
+  width: 350px;
+  margin-bottom: 30px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: var(--clr-bar);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  transform: translateY(-30%);
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.progress {
+  background-color: var(--clr-progress);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  transform: translateY(-30%);
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  border: 3px var(--clr-bar) solid;
+  background-color: #fff;
+  color: hsl(0, 0%, 60%);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--clr-progress);
+}
+
+.btn {
+  background-color: var(--clr-progress);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.btn:active {
+  transform: scale(0.88);
+}
+
+.btn:disabled {
+  background-color: var(--clr-bar);
+  cursor: not-allowed;
+}
